@@ -32,14 +32,15 @@ void loadData(FILE* fp, bool* flag)
 		printf("s”‚ª‚»‚ë‚Á‚Ä‚È‚¢‚æ");
 		flag = 0;
 	}
-	printData(data, row, col, flag);
+	if (flag) {
+		printData(data, row, col);
+	}
 	delete[] data;
 
 }
 
-void printData(char* data, int row, int col,bool* flag)
+void printData(char* data, int row, int col)
 {
-	if (flag) {
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < col; j++) {
 				if (data[j + i * col] == '1')printf("–");
@@ -47,7 +48,11 @@ void printData(char* data, int row, int col,bool* flag)
 			}
 			printf("\n");
 		}
-	}
+
+}
+
+void lotatData(char* data, int row, int col)
+{
 
 }
 
