@@ -3,6 +3,6 @@
 int main() {
 	bool flag = 1;
 	FILE* fp = nullptr;
-	loadData(fp, &flag);
+	playeData(fp, &flag);
 	return 0;
 }

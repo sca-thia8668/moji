@@ -1,7 +1,7 @@
 #include "data.h"
 #include<assert.h>
 
-void loadData(FILE* fp, bool* flag)
+void playeData(FILE* fp, bool* flag)
 {
 	fopen_s(&fp, "data.txt", "r");
 	assert(fp != 0);
