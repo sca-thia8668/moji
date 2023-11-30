@@ -33,6 +33,7 @@ void playeData(FILE* fp, bool* flag)
 		flag = 0;
 	}
 	printData(data, row, col, flag);
+	printf("%d", fileSize);
 	delete[] data;
 
 }
@@ -48,6 +49,8 @@ void printData(char* data, int row, int col,bool* flag)
 			printf("\n");
 		}
 	}
+	printf("%d\n", row);
+	printf("%d\n", col);
 
 }
 
