@@ -33,6 +33,9 @@ void playeData(FILE* fp, bool* flag)
 		flag = 0;
 	}
 	if (flag) {
+		printf("%d\n", row);//8
+		printf("%d\n", col);//9
+		printf("%d\n", fileSize);//80
 		printData(data, row, col);
 		lotatData(data, row, col,fileSize);
 
@@ -49,24 +52,24 @@ void printData(char* data, int row, int col)
 			}
 			printf("\n");
 		}
+		printf("\n");
 
 }
 
 void lotatData(char* data, int row, int col,int fileSize)
 {
-	char* resultData = new char[fileSize];
-	int dx = -1;
-	int dy = 0;
+	//90“x‰ñ“]
+	char* resultData = new char[row*col];
+	int dx = 0;
 	for (int i = 0; i < row; i++) {
-		dx++;
-		dy = row - 1;
-		for (int j = 0; j < col; i++) {
-			resultData[dx + col * dy] = data[j + i * col];
+	int dy = row-1;
+		for (int j = 0; j < row; j++) {
+			resultData[dy * col+dx] = data[j + i * col];
 			dy--;
 		}
+		dx++;
 	}
-	printf("%d", dx);
-	printData(data, row, col);
+	printData(resultData, row, col);
 	delete[] resultData;
 }
 
