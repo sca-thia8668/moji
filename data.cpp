@@ -1,7 +1,7 @@
 #include "data.h"
 #include<assert.h>
 
-void loadData(FILE* fp, bool* flag)
+void playeData(FILE* fp, bool* flag)
 {
 	fopen_s(&fp, "data.txt", "r");
 	assert(fp != 0);
@@ -35,9 +35,9 @@ void loadData(FILE* fp, bool* flag)
 	if (flag) {
 		printData(data, row, col);
 		lotatData(data, row, col,fileSize);
+
 	}
 	delete[] data;
-
 }
 
 void printData(char* data, int row, int col)
@@ -65,7 +65,8 @@ void lotatData(char* data, int row, int col,int fileSize)
 			dy--;
 		}
 	}
-	printData(resultData, row, col);
+	printf("%d", dx);
+	printData(data, row, col);
 	delete[] resultData;
 }
 
