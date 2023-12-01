@@ -33,9 +33,6 @@ void playeData(FILE* fp, bool* flag)
 		flag = 0;
 	}
 	if (flag) {
-		printf("%d\n", row);//8
-		printf("%d\n", col);//9
-		printf("%d\n", fileSize);//80
 		printData(data, row, col);
 		lotatData(data, row, col,fileSize);
 
