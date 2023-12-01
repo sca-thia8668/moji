@@ -34,6 +34,7 @@ void loadData(FILE* fp, bool* flag)
 	}
 	if (flag) {
 		printData(data, row, col);
+		lotatData(data, row, col,fileSize);
 	}
 	delete[] data;
 
@@ -51,8 +52,20 @@ void printData(char* data, int row, int col)
 
 }
 
-void lotatData(char* data, int row, int col)
+void lotatData(char* data, int row, int col,int fileSize)
 {
-
+	char* resultData = new char[fileSize];
+	int dx = -1;
+	int dy = 0;
+	for (int i = 0; i < row; i++) {
+		dx++;
+		dy = row - 1;
+		for (int j = 0; j < col; i++) {
+			resultData[dx + col * dy] = data[j + i * col];
+			dy--;
+		}
+	}
+	printData(resultData, row, col);
+	delete[] resultData;
 }
 
