@@ -32,15 +32,19 @@ void playeData(FILE* fp, bool* flag)
 		printf("çsêîÇ™ÇªÇÎÇ¡ÇƒÇ»Ç¢ÇÊ");
 		flag = 0;
 	}
-	printData(data, row, col, flag);
-	printf("%d", fileSize);
-	delete[] data;
+	if (flag) {
+		printf("%d\n", row);//8
+		printf("%d\n", col);//9
+		printf("%d\n", fileSize);//80
+		printData(data, row, col);
+		lotatData(data, row, col,fileSize);
 
+	}
+	delete[] data;
 }
 
-void printData(char* data, int row, int col,bool* flag)
+void printData(char* data, int row, int col)
 {
-	if (flag) {
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < col; j++) {
 				if (data[j + i * col] == '1')printf("Åñ");
@@ -48,9 +52,24 @@ void printData(char* data, int row, int col,bool* flag)
 			}
 			printf("\n");
 		}
-	}
-	printf("%d\n", row);
-	printf("%d\n", col);
+		printf("\n");
 
+}
+
+void lotatData(char* data, int row, int col,int fileSize)
+{
+	//90ìxâÒì]
+	char* resultData = new char[row*col];
+	int dx = 0;
+	for (int i = 0; i < row; i++) {
+	int dy = row-1;
+		for (int j = 0; j < row; j++) {
+			resultData[dy * col+dx] = data[j + i * col];
+			dy--;
+		}
+		dx++;
+	}
+	printData(resultData, row, col);
+	delete[] resultData;
 }
 
