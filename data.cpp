@@ -1,5 +1,6 @@
 #include "data.h"
 #include<assert.h>
+#include<iostream>
 
 void playeData(FILE* fp, bool* flag)
 {
@@ -21,7 +22,7 @@ void playeData(FILE* fp, bool* flag)
 				col = count;
 			}
 			else if (col != count) {
-				printf("列数がそろってないよ");
+				std::cout << "列数がそろってないよ" << std::endl;
 				flag = 0;
 			}
 			row++;
@@ -29,13 +30,10 @@ void playeData(FILE* fp, bool* flag)
 		}
 	}
 	if (fileSize % row != 0) {
-		printf("行数がそろってないよ");
+		std::cout << "行数がそろってないよ" << std::endl;
 		flag = 0;
 	}
 	if (flag) {
-		printf("%d\n", row);//8
-		printf("%d\n", col);//9
-		printf("%d\n", fileSize);//80
 		printData(data, row, col);
 		lotatData(data, row, col,fileSize);
 
@@ -47,12 +45,12 @@ void printData(char* data, int row, int col)
 {
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < col; j++) {
-				if (data[j + i * col] == '1')printf("＊");
-				else if (data[j + i * col] == '0')printf("　");
+				if (data[j + i * col] == '1')std::cout<<"＊";
+				else if (data[j + i * col] == '0')std::cout<<"　";
 			}
-			printf("\n");
+			std::cout << ::std::endl;
 		}
-		printf("\n");
+		std::cout << ::std::endl;
 
 }
 
